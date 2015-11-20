@@ -1,0 +1,14 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    a(href="/login")
+      img#logo(src="/assets/img/face.png", alt="face logo")
+    .navlink
+      a(href="/logout") Logout
+      a(href="/viewlogs") View login times
+  section#login
+    div Hello #{user.displayName}!
+    p Last Login #{user._json.updated_at}
+    p User #{user._raw}

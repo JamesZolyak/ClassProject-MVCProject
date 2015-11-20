@@ -1,0 +1,22 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    a(href="/login")
+      img#logo(src="/assets/img/face.png", alt="face logo")
+    .navlink
+      a(href="/auth/twitchtv") Home
+      a(href="/logout") Log out
+  section#login
+    p Last Login #{user._json.updated_at}
+    p User #{user.username}
+    p Your Login Count! #{loginCount}
+  section#dates
+    h2 Your Login Times
+    if !dates || dates.length == 0
+      div.date
+        h3.emptyDomo No dates yet
+    else
+      each val in dates
+        div.date #{val}
